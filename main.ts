@@ -277,7 +277,7 @@ game.setDialogFrame(img`
 game.showLongText("You are stuck in Arizona", DialogLayout.Bottom)
 game.showLongText("You only have 2$ and Arizona Iced Tea", DialogLayout.Bottom)
 if (game.ask("Drinked the ice tea", "walk 10 miles")) {
-    gameover("dinosaur eats you")
+    gameover("the dinosaur eats you")
 } else {
     scene.setBackgroundImage(img`
         9999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999999
@@ -481,6 +481,14 @@ if (game.ask("Drinked the ice tea", "walk 10 miles")) {
         `, SpriteKind.Player)
     game.showLongText("The dinosaur says give me something!", DialogLayout.Bottom)
     if (game.ask("Give the dinosaur 2$", "Give the dinosaur iced tea")) {
-    	
+        gameover("dinosaur eats you")
+    } else {
+        game.showLongText("this might help, thank you human!", DialogLayout.Bottom)
+        if (true) {
+            game.showLongText("for your kindness I will help you out of Arizona", DialogLayout.Bottom)
+            game.over(true)
+        } else {
+            gameover("dinosaur eats you")
+        }
     }
 }
