@@ -1,3 +1,42 @@
+function multiple_choice (text: string) {
+	
+}
+function multiple_choices (choices: any[]) {
+    Choice_A = sprites.create(img`
+        . . 2 . . 
+        . 2 . 2 . 
+        2 . . . 2 
+        2 2 2 2 2 
+        2 . . . 2 
+        `, SpriteKind.Player)
+    Choice_A.setPosition(78, 58)
+    game.showLongText(choices[0], DialogLayout.Bottom)
+    Choice_A.destroy()
+    Choice_B = sprites.create(img`
+        4 4 4 . . 
+        4 . . 4 . 
+        4 4 4 . . 
+        4 . . 4 . 
+        4 4 4 . . 
+        `, SpriteKind.Player)
+    Choice_B.setPosition(78, 58)
+    game.showLongText(choices[1], DialogLayout.Bottom)
+    Choice_B.destroy()
+    Choice_C = sprites.create(img`
+        5 5 5 5 5 
+        5 . . . . 
+        5 . . . . 
+        5 . . . . 
+        5 5 5 5 5 
+        `, SpriteKind.Player)
+    Choice_C.setPosition(78, 58)
+    game.showLongText(choices[2], DialogLayout.Bottom)
+    Choice_C.destroy()
+    choice = game.askForString("make a choice(A,B or C)")
+    while (!(choice == "A" || (choice == "B" || choice == "C"))) {
+        choice = game.askForString("make a choice(A,B or C)")
+    }
+}
 function gameover (text: string) {
     sprites.destroyAllSpritesOfKind(SpriteKind.Player)
     scene.setBackgroundImage(img`
@@ -125,6 +164,10 @@ function gameover (text: string) {
     game.showLongText(text, DialogLayout.Bottom)
     game.over(false)
 }
+let choice = ""
+let Choice_C: Sprite = null
+let Choice_B: Sprite = null
+let Choice_A: Sprite = null
 let mySprite: Sprite = null
 scene.setBackgroundImage(img`
     3333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333333
